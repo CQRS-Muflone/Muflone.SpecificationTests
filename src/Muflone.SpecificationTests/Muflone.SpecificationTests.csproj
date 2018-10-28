@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Version>1.0.0</Version>
-    <Copyright>Alessandro Colla</Copyright>
+    <Copyright>Alessandro Colla and contributors</Copyright>
     <PackageLicenseUrl>https://github.com/Iridio/Muflone.SpecificationTests/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Iridio/Muflone.SpecificationTests/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Iridio/Muflone.SpecificationTests/</RepositoryUrl>
@@ -13,6 +13,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>Alessandro Colla</Authors>
     <Company>Alessandro Colla</Company>
+    <Description>Helpers for testing events with Muflone</Description>
   </PropertyGroup>
 
   <ItemGroup>
