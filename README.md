@@ -1,5 +1,6 @@
-# Muflone.Eventstore
-Muflone repository and event dispatcher for [Event Store](https://eventstore.org "Event store's Homepage")
+# Muflone.SpecificationTests
+Helper for creating specification tests with Muflone
  
-
+### Install ###
+`Install-Package Muflone.SpecificationTests`
 
