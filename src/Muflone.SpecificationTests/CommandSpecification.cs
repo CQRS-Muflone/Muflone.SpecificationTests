@@ -95,6 +95,8 @@ namespace Muflone.SpecificationTests
 			}
 			catch (Exception exception) //Otherwise should be something expected
 			{
+				if (ExpectedException==null)
+					Assert.True(false, $"{exception.GetType()}: {exception.Message}\n{exception.StackTrace}");
 				Assert.True(exception.GetType() == ExpectedException.GetType(),
 					$"Exception type {exception.GetType()} differs from expected type {ExpectedException.GetType()}");
 				Assert.True(exception.Message == ExpectedException.Message,
