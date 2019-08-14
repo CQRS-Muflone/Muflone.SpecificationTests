@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Muflone.Core;
 using Muflone.Messages.Events;
 using Muflone.Persistence;
 
@@ -29,12 +30,12 @@ namespace Muflone.SpecificationTests
       givenEvents = events;
     }
 
-    public async Task<TAggregate> GetById<TAggregate>(Guid id) where TAggregate : class, IAggregate
+    public async Task<TAggregate> GetById<TAggregate>(IDomainId id) where TAggregate : class, IAggregate
     {
       return await GetById<TAggregate>(id, 0);
     }
 
-    public Task<TAggregate> GetById<TAggregate>(Guid id, int version) where TAggregate : class, IAggregate
+    public Task<TAggregate> GetById<TAggregate>(IDomainId id, int version) where TAggregate : class, IAggregate
     {
       var aggregate = ConstructAggregate<TAggregate>();
       givenEvents.ForEach(aggregate.ApplyEvent);
