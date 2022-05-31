@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using KellermanSoftware.CompareNetObjects;
+﻿using KellermanSoftware.CompareNetObjects;
 using Muflone.Messages.Commands;
 using Muflone.Messages.Events;
-using Xunit;
 using Xunit.Sdk;
 
 namespace Muflone.SpecificationTests
@@ -48,7 +43,7 @@ namespace Muflone.SpecificationTests
 		///   Returns the instance of the command handler
 		/// </summary>
 		/// <returns></returns>
-		protected abstract ICommandHandler<TCommand> OnHandler();
+		protected abstract ICommandHandlerAsync<TCommand> OnHandler();
 
 		/// <summary>
 		///   The list of events that should be compared to the ones emitted by the aggregate root
@@ -84,7 +79,7 @@ namespace Muflone.SpecificationTests
 			var handler = OnHandler();
 			try
 			{
-				await handler.Handle(When());
+				await handler.HandleAsync(When());
 				var expected = Expect().ToList();
 				var published = Repository.Events;
 				CompareEvents(expected, published);
