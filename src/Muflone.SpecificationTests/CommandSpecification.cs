@@ -11,21 +11,20 @@ namespace Muflone.SpecificationTests
 	/// <typeparam name="TCommand"></typeparam>
 	public abstract class CommandSpecification<TCommand> where TCommand : Command
 	{
+        /// <summary>
+        ///   If the test expects an exception, set this in the constructor of your test
+        /// </summary>
+        protected Exception ExpectedException { get; set; } = default!;
+
+        /// <summary>
+        ///   Mock this repository in the constructor of your test if the default one should not be enough
+        /// </summary>
+        protected InMemoryEventRepository Repository { get; set; }
 		protected CommandSpecification()
 		{
 			//Use this or mock it from test
 			Repository = new InMemoryEventRepository();
 		}
-
-		/// <summary>
-		///   If the test expects an exception, set this in the constructor of your test
-		/// </summary>
-		protected Exception ExpectedException { get; set; }
-
-		/// <summary>
-		///   Mock this repository in the constructor of your test if the default one should not be enough
-		/// </summary>
-		protected InMemoryEventRepository Repository { get; set; }
 
 		/// <summary>
 		///   The list of events that represent the initial status of the aggregate root under test

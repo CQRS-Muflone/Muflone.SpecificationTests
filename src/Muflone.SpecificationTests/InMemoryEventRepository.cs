@@ -7,8 +7,8 @@ namespace Muflone.SpecificationTests
   /// </summary>
     public class InMemoryEventRepository : IRepository
     {
-        private IEnumerable<DomainEvent> givenEvents;
-        public IEnumerable<DomainEvent> Events { get; private set; }
+        private IEnumerable<DomainEvent> givenEvents = Enumerable.Empty<DomainEvent>();
+        public IEnumerable<DomainEvent> Events { get; private set; } = Enumerable.Empty<DomainEvent>();
 
         private static TAggregate ConstructAggregate<TAggregate>()
         {
