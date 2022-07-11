@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using KellermanSoftware.CompareNetObjects;
+﻿using KellermanSoftware.CompareNetObjects;
 using Muflone.Messages.Commands;
 using Muflone.Messages.Events;
-using Xunit;
 using Xunit.Sdk;
 
 namespace Muflone.SpecificationTests
@@ -16,21 +11,20 @@ namespace Muflone.SpecificationTests
 	/// <typeparam name="TCommand"></typeparam>
 	public abstract class CommandSpecification<TCommand> where TCommand : Command
 	{
+        /// <summary>
+        ///   If the test expects an exception, set this in the constructor of your test
+        /// </summary>
+        protected Exception ExpectedException { get; set; } = default!;
+
+        /// <summary>
+        ///   Mock this repository in the constructor of your test if the default one should not be enough
+        /// </summary>
+        protected InMemoryEventRepository Repository { get; set; }
 		protected CommandSpecification()
 		{
 			//Use this or mock it from test
 			Repository = new InMemoryEventRepository();
 		}
-
-		/// <summary>
-		///   If the test expects an exception, set this in the constructor of your test
-		/// </summary>
-		protected Exception ExpectedException { get; set; }
-
-		/// <summary>
-		///   Mock this repository in the constructor of your test if the default one should not be enough
-		/// </summary>
-		protected InMemoryEventRepository Repository { get; set; }
 
 		/// <summary>
 		///   The list of events that represent the initial status of the aggregate root under test
@@ -48,7 +42,7 @@ namespace Muflone.SpecificationTests
 		///   Returns the instance of the command handler
 		/// </summary>
 		/// <returns></returns>
-		protected abstract ICommandHandler<TCommand> OnHandler();
+		protected abstract ICommandHandlerAsync<TCommand> OnHandler();
 
 		/// <summary>
 		///   The list of events that should be compared to the ones emitted by the aggregate root
@@ -84,7 +78,7 @@ namespace Muflone.SpecificationTests
 			var handler = OnHandler();
 			try
 			{
-				await handler.Handle(When());
+				await handler.HandleAsync(When());
 				var expected = Expect().ToList();
 				var published = Repository.Events;
 				CompareEvents(expected, published);
