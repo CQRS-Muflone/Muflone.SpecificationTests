@@ -5,25 +5,6 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
-		<IsPackable>true</IsPackable>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Version>8.0</Version>
-		<Copyright>Alberto Acerbis, Alessandro Colla and contributors</Copyright>
-		<PackageLicenseUrl></PackageLicenseUrl>
-		<PackageProjectUrl>https://github.com/Iridio/Muflone.SpecificationTests/</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/Iridio/Muflone.SpecificationTests/</RepositoryUrl>
-		<PackageTags>Muflone, testing, specification</PackageTags>
-		<NeutralLanguage>en</NeutralLanguage>
-		<Authors>Alberto Acerbis, Alessandro Colla</Authors>
-		<Company>Muflone</Company>
-		<Description>Helpers for testing events with Muflone</Description>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<AssemblyVersion>6.0.0.0</AssemblyVersion>
-		<PackageLicenseFile></PackageLicenseFile>
-		<PackageIcon>Logo.png</PackageIcon>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-	</PropertyGroup>
     <IsPackable>true</IsPackable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
