@@ -1,7 +1,6 @@
 ﻿using KellermanSoftware.CompareNetObjects;
 using Muflone.Messages.Commands;
 using Muflone.Messages.Events;
-using Xunit.Sdk;
 
 namespace Muflone.SpecificationTests
 {
@@ -11,15 +10,15 @@ namespace Muflone.SpecificationTests
 	/// <typeparam name="TCommand"></typeparam>
 	public abstract class CommandSpecification<TCommand> where TCommand : Command
 	{
-        /// <summary>
-        ///   If the test expects an exception, set this in the constructor of your test
-        /// </summary>
-        protected Exception ExpectedException { get; set; } = default!;
+		/// <summary>
+		///   If the test expects an exception, set this in the constructor of your test
+		/// </summary>
+		protected Exception ExpectedException { get; set; } = default!;
 
-        /// <summary>
-        ///   Mock this repository in the constructor of your test if the default one should not be enough
-        /// </summary>
-        protected InMemoryEventRepository Repository { get; set; }
+		/// <summary>
+		///   Mock this repository in the constructor of your test if the default one should not be enough
+		/// </summary>
+		protected InMemoryEventRepository Repository { get; set; }
 		protected CommandSpecification()
 		{
 			//Use this or mock it from test
@@ -62,7 +61,7 @@ namespace Muflone.SpecificationTests
 			config.MembersToIgnore.Add("MessageId");
 
 			var compareObjects = new CompareLogic(config);
-			var eventPairs = expected.Zip(published, (e, p) => new {Expected = e, Published = p});
+			var eventPairs = expected.Zip(published, (e, p) => new { Expected = e, Published = p });
 			foreach (var eventPair in eventPairs)
 			{
 				var result = compareObjects.Compare(eventPair.Expected, eventPair.Published);
@@ -83,13 +82,9 @@ namespace Muflone.SpecificationTests
 				var published = Repository.Events;
 				CompareEvents(expected, published);
 			}
-			catch (AssertActualExpectedException) //If is an assert exception, throw it to the sky
-			{
-				throw;
-			}
 			catch (Exception exception) //Otherwise should be something expected
 			{
-				if (ExpectedException==null)
+				if (ExpectedException == null)
 					Assert.True(false, $"{exception.GetType()}: {exception.Message}\n{exception.StackTrace}");
 				Assert.True(exception.GetType() == ExpectedException.GetType(),
 					$"Exception type {exception.GetType()} differs from expected type {ExpectedException.GetType()}");
