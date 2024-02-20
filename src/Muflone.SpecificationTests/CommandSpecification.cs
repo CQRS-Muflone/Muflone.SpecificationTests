@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using KellermanSoftware.CompareNetObjects;
+﻿using KellermanSoftware.CompareNetObjects;
 using Muflone.Messages.Commands;
 using Muflone.Messages.Events;
-using Xunit;
-using Xunit.Sdk;
 
 namespace Muflone.SpecificationTests
 {
@@ -48,7 +42,7 @@ namespace Muflone.SpecificationTests
 		///   Returns the instance of the command handler
 		/// </summary>
 		/// <returns></returns>
-		protected abstract ICommandHandler<TCommand> OnHandler();
+		protected abstract ICommandHandlerAsync<TCommand> OnHandler();
 
 		/// <summary>
 		///   The list of events that should be compared to the ones emitted by the aggregate root
@@ -68,7 +62,7 @@ namespace Muflone.SpecificationTests
 			config.MembersToIgnore.Add("MessageId");
 
 			var compareObjects = new CompareLogic(config);
-			var eventPairs = expected.Zip(published, (e, p) => new {Expected = e, Published = p});
+			var eventPairs = expected.Zip(published, (e, p) => new { Expected = e, Published = p });
 			foreach (var eventPair in eventPairs)
 			{
 				var result = compareObjects.Compare(eventPair.Expected, eventPair.Published);
@@ -84,18 +78,14 @@ namespace Muflone.SpecificationTests
 			var handler = OnHandler();
 			try
 			{
-				await handler.Handle(When());
+				await handler.HandleAsync(When());
 				var expected = Expect().ToList();
 				var published = Repository.Events;
 				CompareEvents(expected, published);
 			}
-			catch (AssertActualExpectedException) //If is an assert exception, throw it to the sky
-			{
-				throw;
-			}
 			catch (Exception exception) //Otherwise should be something expected
 			{
-				if (ExpectedException==null)
+				if (ExpectedException == null)
 					Assert.True(false, $"{exception.GetType()}: {exception.Message}\n{exception.StackTrace}");
 				Assert.True(exception.GetType() == ExpectedException.GetType(),
 					$"Exception type {exception.GetType()} differs from expected type {ExpectedException.GetType()}");
