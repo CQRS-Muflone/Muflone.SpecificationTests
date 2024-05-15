@@ -8,14 +8,14 @@
     <IsPackable>true</IsPackable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>8.0</Version>
-    <Copyright>Alberto Acerbis, Alessandro Colla</Copyright>
+    <Version>8.0.1</Version>
+    <Copyright>Alessandro Colla, Alberto Acerbis</Copyright>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Iridio/Muflone.SpecificationTests/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Iridio/Muflone.SpecificationTests/</RepositoryUrl>
     <PackageTags>Muflone, testing, specification</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
-    <Authors>Alberto Acerbis, Alessandro Colla</Authors>
+    <Authors>Alessandro Colla, Alberto Acerbis</Authors>
     <Company>Muflone</Company>
     <Description>Helpers for testing events with Muflone</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -24,10 +24,15 @@
     <IsTestProject>true</IsTestProject>
     <Title>Helpers for testing events with Muflone</Title>
     <PackageIcon>Logo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\..\Logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -36,14 +41,14 @@
   <ItemGroup>
     <PackageReference Include="CompareNETObjects" Version="4.83.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-    <PackageReference Include="Muflone" Version="6.2.0" />
+    <PackageReference Include="Muflone" Version="8.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-    <PackageReference Include="xunit" Version="2.7.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
+    <PackageReference Include="xunit" Version="2.8.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="coverlet.collector" Version="6.0.0">
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
