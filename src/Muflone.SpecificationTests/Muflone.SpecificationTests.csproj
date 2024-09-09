@@ -8,7 +8,7 @@
     <IsPackable>true</IsPackable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>8.0.1</Version>
+    <Version>8.1.0</Version>
     <Copyright>Alessandro Colla, Alberto Acerbis</Copyright>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Iridio/Muflone.SpecificationTests/</PackageProjectUrl>
@@ -19,12 +19,12 @@
     <Company>Muflone</Company>
     <Description>Helpers for testing events with Muflone</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>8.0.0.0</AssemblyVersion>
     <PackageLicenseFile></PackageLicenseFile>
     <IsTestProject>true</IsTestProject>
     <Title>Helpers for testing events with Muflone</Title>
     <PackageIcon>Logo.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>Implements new DomainId</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -41,8 +41,8 @@
   <ItemGroup>
     <PackageReference Include="CompareNETObjects" Version="4.83.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-    <PackageReference Include="Muflone" Version="8.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="Muflone" Version="8.1.2" />
     <PackageReference Include="xunit" Version="2.8.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

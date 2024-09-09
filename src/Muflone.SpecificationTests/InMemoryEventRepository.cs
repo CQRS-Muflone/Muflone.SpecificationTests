@@ -1,4 +1,5 @@
-﻿using Muflone.Messages.Events;
+﻿using Muflone.Core;
+using Muflone.Messages.Events;
 using Muflone.Persistence;
 
 namespace Muflone.SpecificationTests
@@ -8,9 +9,9 @@ namespace Muflone.SpecificationTests
 		private IEnumerable<DomainEvent> givenEvents = Enumerable.Empty<DomainEvent>();
 		public IEnumerable<DomainEvent> Events { get; private set; } = Enumerable.Empty<DomainEvent>();
 
-		private static TAggregate ConstructAggregate<TAggregate>()
+		private static TAggregate? ConstructAggregate<TAggregate>()
 		{
-			return (TAggregate)Activator.CreateInstance(typeof(TAggregate), true);
+			return (TAggregate?)Activator.CreateInstance(typeof(TAggregate), true);
 		}
 
 		public void Dispose()
@@ -23,15 +24,16 @@ namespace Muflone.SpecificationTests
 			givenEvents = events;
 		}
 
-		public async Task<TAggregate> GetByIdAsync<TAggregate>(Guid id, CancellationToken cancellationToken) where TAggregate : class, IAggregate
+		public async Task<TAggregate?> GetByIdAsync<TAggregate>(IDomainId id, CancellationToken cancellationToken) where TAggregate : class, IAggregate
 		{
 			return await GetByIdAsync<TAggregate>(id, 0, cancellationToken);
 		}
 
-		public Task<TAggregate> GetByIdAsync<TAggregate>(Guid id, long version, CancellationToken cancellationToken) where TAggregate : class, IAggregate
+		public Task<TAggregate?> GetByIdAsync<TAggregate>(IDomainId id, long version, CancellationToken cancellationToken) where TAggregate : class, IAggregate
 		{
 			var aggregate = ConstructAggregate<TAggregate>();
-			givenEvents.ForEach(aggregate.ApplyEvent);
+			if (aggregate is not null)
+				givenEvents.ForEach(aggregate.ApplyEvent);
 			return Task.FromResult(aggregate);
 		}
 
