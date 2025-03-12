@@ -24,7 +24,7 @@ namespace Muflone.SpecificationTests
 			givenEvents = events;
 		}
 
-		public async Task<TAggregate?> GetByIdAsync<TAggregate>(IDomainId id, CancellationToken cancellationToken) where TAggregate : class, IAggregate
+		public virtual async Task<TAggregate?> GetByIdAsync<TAggregate>(IDomainId id, CancellationToken cancellationToken) where TAggregate : class, IAggregate
 		{
 			return await GetByIdAsync<TAggregate>(id, 0, cancellationToken);
 		}
@@ -37,12 +37,12 @@ namespace Muflone.SpecificationTests
 			return Task.FromResult(aggregate);
 		}
 
-		public async Task SaveAsync(IAggregate aggregate, Guid commitId, CancellationToken cancellationToken = default)
+		public virtual async Task SaveAsync(IAggregate aggregate, Guid commitId, CancellationToken cancellationToken = default)
 		{
 			await SaveAsync(aggregate, commitId, null);
 		}
 
-		public Task SaveAsync(IAggregate aggregate, Guid commitId, Action<IDictionary<string, object>> updateHeaders, CancellationToken cancellationToken = default)
+		public virtual Task SaveAsync(IAggregate aggregate, Guid commitId, Action<IDictionary<string, object>> updateHeaders, CancellationToken cancellationToken = default)
 		{
 			Events = aggregate.GetUncommittedEvents().Cast<DomainEvent>();
 			return Task.CompletedTask;
