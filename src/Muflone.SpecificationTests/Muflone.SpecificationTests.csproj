@@ -1,16 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
     <IsPackable>true</IsPackable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>8.4.0</Version>
+    <Version>10.0.0</Version>
     <Copyright>Alessandro Colla, Alberto Acerbis</Copyright>
-    <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Iridio/Muflone.SpecificationTests/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Iridio/Muflone.SpecificationTests/</RepositoryUrl>
     <PackageTags>Muflone, testing, specification</PackageTags>
@@ -19,7 +18,6 @@
     <Company>Muflone</Company>
     <Description>Update references</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageLicenseFile></PackageLicenseFile>
     <IsTestProject>true</IsTestProject>
     <Title>Helpers for testing events with Muflone</Title>
     <PackageIcon>Logo.png</PackageIcon>
@@ -41,12 +39,12 @@ Update to .NET9</PackageReleaseNotes>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CompareNETObjects" Version="4.83.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.6" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-    <PackageReference Include="Muflone" Version="8.4.0" />
+    <PackageReference Include="CompareNETObjects" Version="4.84.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageReference Include="Muflone" Version="10.0.0" />
     <PackageReference Include="xunit" Version="2.9.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.1">
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
