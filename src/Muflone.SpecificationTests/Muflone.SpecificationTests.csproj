@@ -8,22 +8,23 @@
     <IsPackable>true</IsPackable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>8.0</Version>
-    <Copyright>Alberto Acerbis, Alessandro Colla</Copyright>
-    <PackageLicenseUrl></PackageLicenseUrl>
+    <Version>10.0.0</Version>
+    <Copyright>Alessandro Colla, Alberto Acerbis</Copyright>
     <PackageProjectUrl>https://github.com/Iridio/Muflone.SpecificationTests/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Iridio/Muflone.SpecificationTests/</RepositoryUrl>
     <PackageTags>Muflone, testing, specification</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
-    <Authors>Alberto Acerbis, Alessandro Colla</Authors>
+    <Authors>Alessandro Colla, Alberto Acerbis</Authors>
     <Company>Muflone</Company>
-    <Description>Helpers for testing events with Muflone</Description>
+    <Description>Update references</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>8.0.0.0</AssemblyVersion>
-    <PackageLicenseFile></PackageLicenseFile>
     <IsTestProject>true</IsTestProject>
     <Title>Helpers for testing events with Muflone</Title>
     <PackageIcon>Logo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>Set to virtual the repo's methods for better mocking.
+Extend readme with sample mocking.
+Update to .NET9</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,19 +32,23 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CompareNETObjects" Version="4.84.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-    <PackageReference Include="Muflone" Version="6.2.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-    <PackageReference Include="xunit" Version="2.7.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageReference Include="Muflone" Version="10.0.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="coverlet.collector" Version="6.0.0">
+    <PackageReference Include="coverlet.collector" Version="6.0.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
